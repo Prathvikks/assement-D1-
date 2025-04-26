@@ -1,0 +1,10 @@
+def stealBruteForce(arr, i):
+    if i >= len(arr):
+        return 0
+    steal = arr[i] + stealBruteForce(arr, i + 2)
+    skip = stealBruteForce(arr, i + 1)
+    return max(steal, skip)
+def maxStolenValue(arr):
+    return stealBruteForce(arr, 0)
+arr = [6, 7, 1, 3, 8, 2, 4]
+print(maxStolenValue(arr))  
